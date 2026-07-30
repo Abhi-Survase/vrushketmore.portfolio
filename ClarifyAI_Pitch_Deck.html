@@ -1,0 +1,830 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #0891b2;
+            border-bottom: 3px solid #0891b2;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h2 {
+            color: #1e3a5f;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #2d4a6f;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: #0891b2;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+        }
+        
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        
+        pre code {
+            background: none;
+            color: inherit;
+        }
+        
+        blockquote {
+            border-left: 4px solid #0891b2;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f0f9ff;
+            font-style: italic;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0;
+            margin: 40px 0;
+        }
+        
+        strong {
+            color: #0891b2;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        @media print {
+            body {
+                padding: 20px;
+            }
+            pre {
+                white-space: pre-wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>ClarifyAI</h1>
+
+<h2>The AI That Explains Any Video Content — In Real-Time</h2>
+
+<p><strong>One-Liner:</strong> <em>"Shazam for understanding video content"</em></p>
+
+<p>Ask questions while watching any video. Get instant, spoiler-free answers.</p>
+
+<hr />
+
+<h1>Executive Summary</h1>
+
+<p><strong>ClarifyAI</strong> is an AI-powered video companion that enables viewers to ask questions about any video content in real-time and receive contextually accurate, spoiler-free explanations.</p>
+
+<p>We solve a universal problem: <strong>everyone gets confused watching content, but no one wants to admit it.</strong> Current solutions—Googling, asking friends, or rewinding—either spoil the experience or create social friction.</p>
+
+<p>Our technology combines Retrieval-Augmented Generation (RAG) with temporal awareness to deliver instant explanations that never reveal future plot points.</p>
+
+<p><strong>Market Opportunity:</strong> $50B+ across streaming platforms (Netflix, HBO, Disney+), social video (YouTube, TikTok, Instagram), and educational content (Coursera, Udemy).</p>
+
+<p><strong>Business Model:</strong> B2B SaaS platform licensing + Creator subscription tools + Enterprise integrations.</p>
+
+<p><strong>The Ask:</strong> $1.5M seed round to build MVP, onboard 1,000 creators, and secure first platform partnership.</p>
+
+<hr />
+
+<h1>The Problem</h1>
+
+<h2>Everyone Gets Confused. No One Wants to Admit It.</h2>
+
+<h3>The Statistics</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Metric</th>
+  <th>Value</th>
+  <th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Viewers who abandon complex content when confused</td>
+  <td><strong>68%</strong></td>
+  <td>Massive churn on premium content</td>
+</tr>
+<tr>
+  <td>Annual revenue lost to viewer drop-off</td>
+  <td><strong>$2.7B</strong></td>
+  <td>Studios invest in content that doesn't convert</td>
+</tr>
+<tr>
+  <td>Tutorial watchers who never finish</td>
+  <td><strong>45%</strong></td>
+  <td>Educational content fails its purpose</td>
+</tr>
+<tr>
+  <td>Daily video consumers globally</td>
+  <td><strong>3.2B</strong></td>
+  <td>Enormous addressable market</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Current "Solutions" — And Why They Fail</h3>
+
+<p><strong>1. Google It</strong>
+- User leaves the platform → engagement lost
+- Search results contain <strong>spoilers</strong> → experience ruined
+- Context is generic, not timestamped → still confused</p>
+
+<p><strong>2. Ask Someone</strong>
+- Social pressure → <strong>embarrassment</strong>
+- The other person might not know either
+- Interrupts their viewing experience too</p>
+
+<p><strong>3. Rewind and Rewatch</strong>
+- Time-consuming and <strong>frustrating</strong>
+- Might still not understand
+- Breaks immersion in the narrative</p>
+
+<p><strong>4. Give Up</strong>
+- User abandons content → <strong>lost customer</strong>
+- Negative word-of-mouth → reduced acquisition
+- Wasted content investment by studios</p>
+
+<h3>The Deeper Business Problem</h3>
+
+<p>Complex, prestige content is <strong>expensive to produce</strong> and <strong>drives subscriber retention</strong>. Yet it's also the content most likely to confuse viewers and cause churn.</p>
+
+<p>Examples:
+- <strong>Tenet</strong> (Christopher Nolan): $200M budget, widely praised, but notoriously confusing
+- <strong>Dark</strong> (Netflix): 3-season epic, critical acclaim, high drop-off due to complexity
+- <strong>Westworld</strong> (HBO): Multi-timeline narrative loses casual viewers</p>
+
+<p><strong>Studios are trapped:</strong> Simplify content and lose critical acclaim, or maintain complexity and lose casual viewers.</p>
+
+<p><strong>ClarifyAI breaks this tradeoff.</strong></p>
+
+<hr />
+
+<h1>The Solution</h1>
+
+<h2>ClarifyAI — Your Video Co-Pilot</h2>
+
+<p>An <strong>AI chatbot layer</strong> embedded directly into video players that:</p>
+
+<h3>Core Features</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Real-time Q&amp;A</strong></td>
+  <td>Ask any question while watching</td>
+</tr>
+<tr>
+  <td><strong>Timestamp-aware</strong></td>
+  <td>Knows exactly where you are in the video</td>
+</tr>
+<tr>
+  <td><strong>Spoiler-free</strong></td>
+  <td>Only references content you've already seen</td>
+</tr>
+<tr>
+  <td><strong>Platform-native</strong></td>
+  <td>No app switching, stays inside the player</td>
+</tr>
+<tr>
+  <td><strong>Multi-platform</strong></td>
+  <td>Works on streaming, social, educational content</td>
+</tr>
+</tbody>
+</table>
+
+<h3>User Experience</h3>
+
+<pre><code>┌─────────────────────────────────────────────────────┐
+│  🎬 User watching "Inception" at 01:23:45          │
+│                                                     │
+│  User taps chat icon...                            │
+│                                                     │
+│  💬 "Wait, whose dream are they in right now?"     │
+│                                                     │
+│  🤖 ClarifyAI responds:                            │
+│     "They're currently in Eames' dream (Level 2).  │
+│      The snow fortress represents Fischer's        │
+│      militarized subconscious. Cobb went one      │
+│      level deeper at 01:18:22 — you saw him       │
+│      fall through the floor."                      │
+│                                                     │
+│  [Jump to 01:18:22] [Continue Watching]            │
+└─────────────────────────────────────────────────────┘
+</code></pre>
+
+<h3>Why Users Love It</h3>
+
+<ol>
+<li><strong>No judgment</strong> — Ask anything, even "dumb" questions</li>
+<li><strong>No spoilers</strong> — Temporal filtering ensures safety</li>
+<li><strong>No friction</strong> — Never leave the video player</li>
+<li><strong>Instant answers</strong> — Sub-second response times</li>
+<li><strong>Contextual</strong> — Answers reference specific scenes and timestamps</li>
+</ol>
+
+<hr />
+
+<h1>Technology</h1>
+
+<h2>RAG + Temporal Awareness</h2>
+
+<h3>Architecture Overview</h3>
+
+<pre><code>                    CONTENT INGESTION (One-time per video)
+                              │
+    ┌─────────────────────────┼─────────────────────────┐
+    │                         │                         │
+    ▼                         ▼                         ▼
+┌─────────┐           ┌─────────────┐           ┌─────────────┐
+│ Script/ │           │   Scene     │           │ Character   │
+│Transcript│           │Descriptions │           │  Profiles   │
+└────┬────┘           └──────┬──────┘           └──────┬──────┘
+     │                       │                         │
+     └───────────────────────┼─────────────────────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ CHUNKING &amp;      │
+                    │ TIMESTAMPING    │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ EMBEDDING       │
+                    │ (sentence-      │
+                    │  transformers)  │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ VECTOR DATABASE │
+                    │ (Pinecone)      │
+                    └─────────────────┘
+
+
+                    QUERY TIME (Per user question)
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │ USER QUESTION   │
+                    │ + Timestamp     │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ TEMPORAL FILTER │
+                    │ Only scenes     │
+                    │ before now      │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ SEMANTIC SEARCH │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ LLM GENERATION  │
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ SPOILER-FREE    │
+                    │ ANSWER          │
+                    └─────────────────┘
+</code></pre>
+
+<h3>Key Innovation: Temporal Spoiler Prevention</h3>
+
+<div class="codehilite">
+<pre><span></span><code><span class="k">def</span> <span class="nf">retrieve_context</span><span class="p">(</span><span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">current_timestamp</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Only retrieve content from BEFORE the user&#39;s current position.&quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">vector_db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="n">query_text</span><span class="o">=</span><span class="n">question</span><span class="p">,</span>
+        <span class="nb">filter</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;timestamp&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;$lte&quot;</span><span class="p">:</span> <span class="n">current_timestamp</span><span class="p">}},</span>
+        <span class="n">top_k</span><span class="o">=</span><span class="mi">5</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre>
+</div>
+
+<p>This ensures the system is <strong>architecturally incapable of spoiling</strong>.</p>
+
+<h3>Tech Stack</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Component</th>
+  <th>Choice</th>
+  <th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Vector DB</strong></td>
+  <td>Pinecone</td>
+  <td>Scalable, cloud-native</td>
+</tr>
+<tr>
+  <td><strong>Embeddings</strong></td>
+  <td>OpenAI ada-002</td>
+  <td>High quality</td>
+</tr>
+<tr>
+  <td><strong>LLM</strong></td>
+  <td>GPT-4 / Claude</td>
+  <td>Best reasoning</td>
+</tr>
+<tr>
+  <td><strong>Backend</strong></td>
+  <td>FastAPI</td>
+  <td>Rapid development</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1>Market Opportunity</h1>
+
+<h2>$50B+ Total Addressable Market</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Category</th>
+  <th>Platforms</th>
+  <th>Users</th>
+  <th>Value Prop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Streaming</strong></td>
+  <td>Netflix, HBO, Disney+</td>
+  <td>600M+</td>
+  <td>Complex content</td>
+</tr>
+<tr>
+  <td><strong>Social Video</strong></td>
+  <td>YouTube, TikTok, Instagram</td>
+  <td>4B+</td>
+  <td>Trend explanations</td>
+</tr>
+<tr>
+  <td><strong>Education</strong></td>
+  <td>Coursera, Udemy</td>
+  <td>200M+</td>
+  <td>Lecture Q&amp;A</td>
+</tr>
+<tr>
+  <td><strong>Live Streaming</strong></td>
+  <td>Twitch</td>
+  <td>200M+</td>
+  <td>Catch-up</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Target Content</h3>
+
+<ul>
+<li>Sci-Fi: Inception, Tenet, Interstellar, Arrival</li>
+<li>Mystery: Gone Girl, Shutter Island, Memento</li>
+<li>Fantasy: Game of Thrones, Dune</li>
+<li>Prestige TV: Dark, Westworld, True Detective</li>
+</ul>
+
+<p><strong>These are the most expensive, acclaimed, and confusing titles.</strong></p>
+
+<hr />
+
+<h1>Business Model</h1>
+
+<h2>B2B SaaS + Creator Tools</h2>
+
+<h3>Revenue Streams</h3>
+
+<p><strong>1. Platform API</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Tier</th>
+  <th>Pricing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Starter</td>
+  <td>$0.001/query</td>
+</tr>
+<tr>
+  <td>Growth</td>
+  <td>$0.005/query</td>
+</tr>
+<tr>
+  <td>Enterprise</td>
+  <td>Custom</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>2. Creator Pro</strong></p>
+
+<table>
+<thead>
+<tr>
+  <th>Plan</th>
+  <th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Free</td>
+  <td>$0</td>
+</tr>
+<tr>
+  <td>Pro</td>
+  <td>$9.99/mo</td>
+</tr>
+<tr>
+  <td>Studio</td>
+  <td>$49.99/mo</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>3. Enterprise:</strong> $50K-500K/year</p>
+
+<h3>Projections</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Year</th>
+  <th>Total ARR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>$150K</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>$1.7M</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>$8M</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>$18M</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>$50M</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1>For Content Creators</h1>
+
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Benefit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><strong>Context Documents</strong></td>
+  <td>Upload notes, FAQs</td>
+</tr>
+<tr>
+  <td><strong>Auto-Transcription</strong></td>
+  <td>We handle processing</td>
+</tr>
+<tr>
+  <td><strong>Confusion Analytics</strong></td>
+  <td>See where viewers get lost</td>
+</tr>
+<tr>
+  <td><strong>Q&amp;A Automation</strong></td>
+  <td>AI answers at scale</td>
+</tr>
+<tr>
+  <td><strong>Monetization</strong></td>
+  <td>Premium tier for fans</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1>For Social Platforms</h1>
+
+<h2>"Explain This" Button</h2>
+
+<p>Every Reel/TikTok gets an optional explain button:</p>
+
+<pre><code>┌───────────────────────────────┐
+│  🎵 Viral TikTok              │
+│                               │
+│  [❓ Explain This]             │
+│                               │
+│  🤖 "This trend started..."   │
+└───────────────────────────────┘
+</code></pre>
+
+<p><strong>Platform benefits:</strong> Increased watch time, global reach, accessibility.</p>
+
+<hr />
+
+<h1>Competitive Landscape</h1>
+
+<table>
+<thead>
+<tr>
+  <th>Competitor</th>
+  <th>Gap</th>
+  <th>Our Edge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Google</td>
+  <td>External, spoilers</td>
+  <td><strong>Inside the player</strong></td>
+</tr>
+<tr>
+  <td>ChatGPT</td>
+  <td>No video context</td>
+  <td><strong>Timestamp-aware</strong></td>
+</tr>
+<tr>
+  <td>Subtitles</td>
+  <td>No explanations</td>
+  <td><strong>Semantic understanding</strong></td>
+</tr>
+<tr>
+  <td>Wikis</td>
+  <td>Static</td>
+  <td><strong>Dynamic, contextual</strong></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Moats</h3>
+
+<ol>
+<li>First in-platform solution</li>
+<li>Temporal spoiler prevention (patentable)</li>
+<li>Creator ecosystem lock-in</li>
+<li>Platform partnerships</li>
+</ol>
+
+<hr />
+
+<h1>Go-To-Market</h1>
+
+<table>
+<thead>
+<tr>
+  <th>Phase</th>
+  <th>Timeline</th>
+  <th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>MVP</td>
+  <td>Month 1-3</td>
+  <td>Browser extension</td>
+</tr>
+<tr>
+  <td>Creators</td>
+  <td>Month 4-6</td>
+  <td>1K creators</td>
+</tr>
+<tr>
+  <td>Pilot</td>
+  <td>Month 7-9</td>
+  <td>Indie platform</td>
+</tr>
+<tr>
+  <td>Scale</td>
+  <td>Year 2</td>
+  <td>Major platform</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1>Team</h1>
+
+<p><strong>Vrushket More</strong> — Founder &amp; AI Lead
+- MS Computer Science, Binghamton University
+- AI/ML Engineer with production RAG experience
+- Published researcher in healthcare AI</p>
+
+<h3>Hiring Plan</h3>
+
+<ul>
+<li>Full-Stack Engineer (Month 1)</li>
+<li>Product Designer (Month 2)</li>
+<li>BD Lead (Month 4)</li>
+</ul>
+
+<hr />
+
+<h1>The Ask</h1>
+
+<h2>Seed Round: $1.5M</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Category</th>
+  <th>Amount</th>
+  <th>%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Engineering</td>
+  <td>$800K</td>
+  <td>53%</td>
+</tr>
+<tr>
+  <td>Content</td>
+  <td>$300K</td>
+  <td>20%</td>
+</tr>
+<tr>
+  <td>GTM</td>
+  <td>$250K</td>
+  <td>17%</td>
+</tr>
+<tr>
+  <td>Operations</td>
+  <td>$150K</td>
+  <td>10%</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Milestones</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Month</th>
+  <th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>3</td>
+  <td>MVP with 100 films</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>1K creators, first revenue</td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>Platform pilot</td>
+</tr>
+<tr>
+  <td>12</td>
+  <td>10K users, $500K ARR</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Return Thesis</h3>
+
+<ul>
+<li>Exit: $200M+ acquisition in 5-7 years</li>
+<li>Strategic acquirers: Netflix, Google, TikTok</li>
+<li><strong>Investor return: 40x on seed</strong></li>
+</ul>
+
+<hr />
+
+<h1>Why Now?</h1>
+
+<table>
+<thead>
+<tr>
+  <th>Trend</th>
+  <th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>RAG is mature</td>
+  <td>Tech is proven</td>
+</tr>
+<tr>
+  <td>AI is accepted</td>
+  <td>Users expect assistants</td>
+</tr>
+<tr>
+  <td>Content is complex</td>
+  <td>Market grows</td>
+</tr>
+<tr>
+  <td>Streaming saturated</td>
+  <td>Platforms need differentiation</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+
+<h1>Vision</h1>
+
+<h2>Every video. Understood. By everyone.</h2>
+
+<hr />
+
+<h1>Contact</h1>
+
+<p><strong>Vrushket More</strong></p>
+
+<p>📧 vmore2@binghamton.edu
+💼 linkedin.com/in/vrushketmore
+💻 github.com/vmore2
+🌐 vmore2.github.io</p>
+
+<hr />
+
+<p><em>"Because no one should have to pretend they understood the movie."</em></p>
+
+<p><strong>ClarifyAI</strong> — Ask. Understand. Enjoy.</p>
+
+</body>
+</html>
