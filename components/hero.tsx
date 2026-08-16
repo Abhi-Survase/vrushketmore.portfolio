@@ -4,8 +4,9 @@ import { Reveal } from "@/components/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 
-const stats = [
-  { value: "3+", label: "Years Experience" },
+const stats: { value: string; suffix?: string; label: string }[] = [
+  { value: "3+", label: "Years Internship Experience" },
+  { value: "3.87", suffix: " / 4.0", label: "GPA (MS)" },
   { value: "12+", label: "Projects Shipped" },
   { value: "2", label: "First-Author Papers" },
 ];
@@ -117,14 +118,19 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={360}>
-          <div className="mx-auto mt-16 grid w-full max-w-2xl grid-cols-3 divide-x divide-border/70">
+          <div className="mx-auto mt-16 grid w-full max-w-4xl grid-cols-2 gap-y-8 sm:grid-cols-4 sm:divide-x sm:divide-border/70">
             {stats.map((stat) => (
               <div
                 key={stat.label}
                 className="flex flex-col items-center gap-1 px-2 text-center"
               >
-                <span className="text-3xl font-semibold text-foreground sm:text-4xl lg:text-5xl">
+                <span className="text-3xl font-semibold text-foreground sm:text-4xl">
                   {stat.value}
+                  {stat.suffix ? (
+                    <span className="text-lg text-muted-foreground sm:text-xl">
+                      {stat.suffix}
+                    </span>
+                  ) : null}
                 </span>
                 <span className="text-xs tracking-wide text-muted-foreground uppercase sm:text-sm">
                   {stat.label}
