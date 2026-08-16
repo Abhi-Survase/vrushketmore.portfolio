@@ -55,7 +55,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={60}>
-          <h1 className="mx-auto mt-8 text-[clamp(2.5rem,9vw,4rem)] leading-[1.05] font-bold tracking-tight text-balance text-foreground md:text-7xl">
+          <h1 className="font-heading mx-auto mt-8 text-[clamp(2.5rem,9vw,4rem)] leading-[1.05] font-bold tracking-tight text-balance text-foreground md:text-7xl">
             Vrushket More
           </h1>
         </Reveal>

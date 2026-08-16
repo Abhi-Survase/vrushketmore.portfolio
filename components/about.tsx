@@ -59,7 +59,7 @@ export function About() {
                   key={highlight.title}
                   className="gap-0 rounded-2xl border-border/70 bg-card/80 p-5 shadow-none"
                 >
-                  <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
+                  <h3 className="font-heading flex items-center gap-2 text-base font-semibold text-foreground">
                     <highlight.icon
                       aria-hidden="true"
                       className="size-4 text-chart-1"

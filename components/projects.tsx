@@ -140,7 +140,7 @@ export function Projects() {
                   </Badge>
                 ) : null}
 
-                <h3 className="mt-5 flex items-center gap-2 text-xl font-semibold text-foreground">
+                <h3 className="font-heading mt-5 flex items-center gap-2 text-xl font-semibold text-foreground">
                   <project.icon
                     aria-hidden="true"
                     className="size-5 text-chart-1"

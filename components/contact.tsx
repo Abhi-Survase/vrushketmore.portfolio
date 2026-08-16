@@ -61,7 +61,7 @@ export function Contact() {
           <Card className="relative mt-16 overflow-hidden rounded-3xl border-border/60 bg-card/80 p-6 shadow-none sm:p-12">
             <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-14">
               <div>
-                <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">
+                <h3 className="font-heading text-2xl font-semibold text-foreground sm:text-3xl">
                   Reach out — I usually reply within a day.
                 </h3>
                 <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
