@@ -93,7 +93,7 @@ export function Hero() {
               className={buttonVariants({
                 size: "lg",
                 className:
-                  "h-13 gap-2 rounded-full bg-primary/80 px-8 text-lg font-semibold backdrop-blur-md hover:bg-primary/90",
+                  "h-13 gap-2 rounded-full bg-primary/95 px-8 text-lg font-semibold backdrop-blur-md hover:bg-primary",
               })}
             >
               View My Work

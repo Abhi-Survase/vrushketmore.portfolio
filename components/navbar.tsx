@@ -57,7 +57,7 @@ export function Navbar() {
             href="#contact"
             className={buttonVariants({
               className:
-                "rounded-full bg-primary/80 px-5 text-base backdrop-blur-md hover:bg-primary/90",
+                "rounded-full bg-primary/95 px-5 text-base backdrop-blur-md hover:bg-primary",
             })}
           >
             Let’s Talk
@@ -110,7 +110,7 @@ export function Navbar() {
             onClick={() => setOpen(false)}
             className={buttonVariants({
               className:
-                "mt-2 rounded-full bg-primary/80 text-base backdrop-blur-md hover:bg-primary/90",
+                "mt-2 rounded-full bg-primary/95 text-base backdrop-blur-md hover:bg-primary",
             })}
           >
             Let’s Talk

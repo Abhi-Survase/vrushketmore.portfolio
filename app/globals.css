@@ -55,6 +55,7 @@
   --animate-marquee-reverse: marquee-reverse 48s linear infinite;
   --animate-marquee-slow: marquee 64s linear infinite;
   --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-ring-pulse: ring-pulse 2s ease-out infinite;
 
   @keyframes marquee {
     to {
@@ -68,6 +69,17 @@
     }
     to {
       transform: translateX(0);
+    }
+  }
+
+  @keyframes ring-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2.5);
+      opacity: 0;
     }
   }
 
