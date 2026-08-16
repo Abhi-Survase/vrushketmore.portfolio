@@ -13,12 +13,32 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = ["top", "about", "projects", "contact"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id === "top" ? "" : entry.target.id);
+          }
+        }
+      },
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    }
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -48,7 +68,12 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-base font-medium text-muted-foreground transition-colors hover:text-foreground"
+              aria-current={active === link.href.slice(1) ? "true" : undefined}
+              className={`text-base font-medium transition-colors hover:text-foreground ${
+                active === link.href.slice(1)
+                  ? "text-foreground"
+                  : "text-muted-foreground"
+              }`}
             >
               {link.label}
             </a>
@@ -102,7 +127,12 @@ export function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-lg px-3 py-2.5 text-base font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              aria-current={active === link.href.slice(1) ? "true" : undefined}
+              className={`rounded-lg px-3 py-2.5 text-base font-medium transition-colors hover:bg-accent hover:text-foreground ${
+                active === link.href.slice(1)
+                  ? "text-foreground"
+                  : "text-muted-foreground"
+              }`}
             >
               {link.label}
             </a>

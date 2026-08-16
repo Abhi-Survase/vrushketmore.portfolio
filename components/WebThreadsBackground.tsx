@@ -43,6 +43,7 @@ const MOBILE_PROPS: WebThreadsProps = {
  */
 export function WebThreadsBackground() {
   const [isMobile, setIsMobile] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -51,6 +52,16 @@ export function WebThreadsBackground() {
     mq.addEventListener("change", update);
     return () => mq.removeEventListener("change", update);
   }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  if (reducedMotion) return null;
 
   return <WebThreads {...(isMobile ? MOBILE_PROPS : DESKTOP_PROPS)} />;
 }

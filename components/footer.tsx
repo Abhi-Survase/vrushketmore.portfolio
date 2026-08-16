@@ -48,7 +48,9 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-2 border-t border-border/60 pt-6 text-sm text-muted-foreground/70 sm:flex-row sm:items-center">
-          <p>© 2026 Vrushket More. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Vrushket More. All rights reserved.
+          </p>
           <p>Turning data into published results.</p>
         </div>
       </div>
