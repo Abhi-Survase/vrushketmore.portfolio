@@ -88,10 +88,12 @@ export function Navbar() {
       </nav>
 
       <div
-        className={`border-t border-border/70 bg-background/95 px-6 py-4 backdrop-blur-xl transition-[opacity,transform] duration-[180ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none md:hidden ${
+        aria-hidden={!open}
+        inert={!open}
+        className={`absolute inset-x-0 top-full border-t border-border/70 bg-background/95 px-6 py-4 transition-[opacity,transform] duration-[180ms] ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none md:hidden ${
           open
-            ? "visible translate-y-0 opacity-100"
-            : "invisible -translate-y-2 opacity-0 pointer-events-none"
+            ? "translate-y-0 opacity-100 backdrop-blur-xl"
+            : "-translate-y-2 opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col gap-1">

@@ -54,10 +54,12 @@ export function Chatbot() {
 
       {/* Chat window */}
       <div
-        className={`absolute right-0 bottom-[88px] flex h-[min(720px,calc(100dvh-8.5rem))] w-[min(440px,calc(100vw-30px))] origin-bottom-right flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-2xl transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        aria-hidden={!open}
+        inert={!open}
+        className={`absolute right-0 bottom-[88px] flex h-[min(720px,calc(100dvh-8.5rem))] w-[min(440px,calc(100vw-30px))] origin-bottom-right flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/60 transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           open
-            ? "visible translate-y-0 scale-100 opacity-100 shadow-2xl shadow-black/50"
-            : "invisible pointer-events-none translate-y-8 scale-95 opacity-0"
+            ? "translate-y-0 scale-100 opacity-100 shadow-2xl shadow-black/50 backdrop-blur-2xl"
+            : "pointer-events-none translate-y-8 scale-95 opacity-0"
         }`}
       >
         {/* Header */}
