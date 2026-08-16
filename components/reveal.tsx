@@ -13,6 +13,16 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(media.matches);
+    const onChange = (event: MediaQueryListEvent) =>
+      setReducedMotion(event.matches);
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -38,8 +48,12 @@ export function Reveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      className={`transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        visible
+          ? "translate-y-0 opacity-100"
+          : reducedMotion
+            ? "opacity-0"
+            : "translate-y-6 opacity-0"
       } ${className}`}
     >
       {children}

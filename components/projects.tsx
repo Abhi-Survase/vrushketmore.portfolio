@@ -18,7 +18,6 @@ type Project = {
   description: string;
   tags: string[];
   icon: LucideIcon;
-  tile: string;
   featured?: boolean;
   badge?: string;
   metrics?: { value: string; label: string }[];
@@ -33,7 +32,6 @@ const projects: Project[] = [
       "Multi-agent healthcare analytics pipeline processing 10,000+ PubMed case reports for NSCLC clinical evidence. First author on Research Square preprint.",
     tags: ["Python", "LangChain", "NLP", "Multi-Agent"],
     icon: Activity,
-    tile: "bg-[linear-gradient(135deg,var(--chart-1),var(--chart-2))]",
     featured: true,
     badge: "Featured Research",
     metrics: [
@@ -50,7 +48,6 @@ const projects: Project[] = [
       "AI-powered customer analytics platform that expanded the paying customer base by 50% through intelligent ETL pipelines and personalization.",
     tags: ["Python", "ETL", "Analytics"],
     icon: Eye,
-    tile: "bg-[linear-gradient(135deg,var(--chart-3),var(--chart-1))]",
     metrics: [
       { value: "50%", label: "Growth" },
       { value: "93%", label: "Accuracy" },
@@ -64,7 +61,6 @@ const projects: Project[] = [
       "The first temporal embedding model that knows when memories happened, powering a multi-agent memory system that routes queries to the right expert.",
     tags: ["Embeddings", "Multi-Agent", "PyPI", "HuggingFace"],
     icon: Database,
-    tile: "bg-[linear-gradient(135deg,var(--chart-2),var(--chart-5))]",
     badge: "Open Source",
     metrics: [
       { value: "0.65", label: "MRR" },
@@ -77,10 +73,9 @@ const projects: Project[] = [
   {
     title: "RuntimeX",
     description:
-      "Production-grade AI agent harness solving the “black box” problem in LLM workflows — deterministic replay, time-travel forks, and a self-healing memory system.",
+      "Production-grade AI agent harness solving the “black box” problem in LLM workflows: deterministic replay, time-travel forks, and a self-healing memory system.",
     tags: ["Python", "LLMOps", "ReAct Agents", "Telemetry"],
     icon: Share2,
-    tile: "bg-[linear-gradient(135deg,var(--chart-4),var(--chart-3))]",
     metrics: [
       { value: "100%", label: "Deterministic" },
       { value: "O(1)", label: "Replay Cost" },
@@ -95,7 +90,6 @@ const projects: Project[] = [
       "End-to-end GenAI pipeline that autonomously transforms raw ebooks into studio-quality audiobooks with emotion-driven voice synthesis.",
     tags: ["LangGraph", "Gemini 2.5 Pro", "OpenAI TTS", "Streamlit"],
     icon: Headphones,
-    tile: "bg-[linear-gradient(135deg,var(--chart-5),var(--chart-2))]",
     metrics: [
       { value: "100%", label: "Automated" },
       { value: "5+", label: "Emotions Mapped" },
@@ -106,10 +100,9 @@ const projects: Project[] = [
   {
     title: "FinFlow",
     description:
-      "Automated financial intelligence pipeline on Apache Airflow — real-time prices, technical indicators (RSI, moving averages), and trading signals.",
+      "Automated financial intelligence pipeline on Apache Airflow: real-time prices, technical indicators (RSI, moving averages), and trading signals.",
     tags: ["Apache Airflow", "Python", "ETL", "Astronomer"],
     icon: ChartLine,
-    tile: "bg-[linear-gradient(135deg,var(--chart-3),var(--chart-4))]",
     href: "https://github.com/vmore2/Finflow",
     linkLabel: "View Code",
   },
@@ -118,18 +111,9 @@ const projects: Project[] = [
 export function Projects() {
   return (
     <section id="projects" className="relative py-16 sm:py-24">
-      <div
-        aria-hidden
-        className="absolute top-1/4 -right-40 h-96 w-96 rounded-full bg-chart-2/10 blur-3xl"
-      />
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeading
-          tag="Portfolio"
-          title={
-            <>
-              Featured <span className="text-gradient">Projects</span>
-            </>
-          }
+          title="Featured Projects"
           subtitle="A showcase of AI/ML innovations and data-driven solutions"
         />
 
@@ -141,7 +125,7 @@ export function Projects() {
               className="h-full"
             >
               <Card
-                className={`group relative h-full gap-0 rounded-2xl p-6 shadow-none transition duration-300 hover:-translate-y-1 ${
+                className={`group relative h-full gap-0 rounded-2xl p-6 shadow-none transition-[transform,background-color,border-color] duration-200 ease-out hover:-translate-y-1 ${
                   project.featured
                     ? "border-chart-1/30 bg-chart-1/[0.06] hover:border-chart-1/40"
                     : "border-border/80 bg-card/50 hover:border-foreground/20 hover:bg-card/80"
@@ -156,16 +140,11 @@ export function Projects() {
                   </Badge>
                 ) : null}
 
-                <div
-                  className={`flex h-12 w-12 items-center justify-center rounded-xl shadow-lg ${project.tile}`}
-                >
+                <h3 className="mt-5 flex items-center gap-2 text-xl font-semibold text-foreground">
                   <project.icon
                     aria-hidden="true"
-                    className="h-6 w-6 text-white"
+                    className="size-5 text-chart-1"
                   />
-                </div>
-
-                <h3 className="mt-5 text-xl font-semibold text-foreground">
                   {project.title}
                 </h3>
                 <p className="mt-2 flex-1 text-base leading-relaxed text-muted-foreground">
@@ -174,7 +153,7 @@ export function Projects() {
 
                 {project.metrics ? (
                   <dl
-                    className={`mt-5 grid gap-3 rounded-xl border border-border/60 bg-muted/40 p-4 ${
+                    className={`mt-5 grid gap-3 ${
                       project.metrics.length === 3
                         ? "grid-cols-3"
                         : "grid-cols-2"
@@ -182,7 +161,7 @@ export function Projects() {
                   >
                     {project.metrics.map((metric) => (
                       <div key={metric.label}>
-                        <dd className="text-xl font-semibold text-gradient">
+                        <dd className="text-xl font-semibold text-foreground">
                           {metric.value}
                         </dd>
                         <dt className="mt-0.5 text-xs tracking-wide text-muted-foreground uppercase">

@@ -17,10 +17,10 @@ export function Marquee() {
   return (
     <section
       aria-label="Technologies I work with"
-      className="relative border-y border-border/60 bg-muted/30 py-5"
+      className="relative border-y border-border/40 bg-muted/20 py-4"
     >
       <div className="mask-fade-x overflow-hidden">
-        <div className="flex w-max animate-marquee">
+        <div className="flex w-max animate-marquee motion-reduce:animate-none">
           {[0, 1].map((half) => (
             <div
               key={half}
@@ -30,10 +30,10 @@ export function Marquee() {
               {stack.map((tech) => (
                 <span
                   key={tech}
-                  className="flex items-center whitespace-nowrap text-base font-medium tracking-wide text-muted-foreground"
+                  className="flex items-center whitespace-nowrap text-base font-medium tracking-wide text-muted-foreground/70"
                 >
                   {tech}
-                  <span className="mx-5 text-chart-1/40">◆</span>
+                  <span className="mx-6 h-1 w-1 rounded-full bg-foreground/20" />
                 </span>
               ))}
             </div>

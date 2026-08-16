@@ -50,23 +50,11 @@
 
 @theme {
   --animate-marquee: marquee 42s linear infinite;
-  --animate-float-slow: float 9s ease-in-out infinite;
-  --animate-float-slower: float 13s ease-in-out infinite reverse;
   --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
 
   @keyframes marquee {
     to {
       transform: translateX(-50%);
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-16px);
     }
   }
 
@@ -84,6 +72,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -109,18 +103,6 @@ body {
   background: color-mix(in oklch, var(--foreground) 24%, transparent);
 }
 
-@utility text-gradient {
-  background-image: linear-gradient(
-    92deg,
-    var(--chart-1) 0%,
-    var(--chart-2) 45%,
-    var(--chart-3) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 @utility mask-fade-x {
   -webkit-mask-image: linear-gradient(
     to right,
@@ -135,15 +117,6 @@ body {
     black 15%,
     black 85%,
     transparent
-  );
-}
-
-@utility bg-linear-brand {
-  background-image: linear-gradient(
-    135deg,
-    var(--chart-1) 0%,
-    var(--chart-2) 55%,
-    var(--chart-3) 130%
   );
 }
 

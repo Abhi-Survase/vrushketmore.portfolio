@@ -53,22 +53,12 @@ export function Contact() {
     <section id="contact" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
-          tag="Get In Touch"
-          title={
-            <>
-              Let’s Build{" "}
-              <span className="text-gradient">Something Amazing</span>
-            </>
-          }
-          subtitle="Open to new opportunities in AI/ML, data science, and business intelligence. Let’s connect!"
+          title="Let’s Talk About Your Data"
+          subtitle="Open to roles in AI/ML, data science, and business intelligence, and always up for a hard data problem."
         />
 
         <Reveal delay={100}>
-          <Card className="relative mt-16 overflow-hidden rounded-3xl border-border/60 bg-card/50 p-6 shadow-none sm:p-12">
-            <div
-              aria-hidden
-              className="absolute -top-32 left-1/2 h-64 w-[36rem] -translate-x-1/2 rounded-full bg-chart-1/15 blur-3xl"
-            />
+          <Card className="relative mt-16 overflow-hidden rounded-3xl border-border/60 bg-card/80 p-6 shadow-none sm:p-12">
             <div className="relative grid gap-10 lg:grid-cols-2 lg:gap-14">
               <div>
                 <h3 className="text-2xl font-semibold text-foreground sm:text-3xl">
@@ -76,7 +66,7 @@ export function Contact() {
                 </h3>
                 <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                   Whether it’s a role, a research collaboration, or an idea for
-                  an AI product — my inbox is open.
+                  an AI product, my inbox is open.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   {socials.map((social) => (
@@ -122,7 +112,7 @@ export function Contact() {
                     </>
                   );
                   const cardClass =
-                    "flex items-center gap-4 rounded-2xl border border-border/60 bg-muted/40 p-4 transition hover:border-border hover:bg-muted/60";
+                    "flex items-center gap-4 rounded-2xl border border-border/60 bg-muted/40 p-4 transition-colors hover:border-border hover:bg-muted/60";
                   return channel.href ? (
                     <a
                       key={channel.label}
