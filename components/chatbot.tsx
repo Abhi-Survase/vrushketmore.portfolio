@@ -54,14 +54,14 @@ export function Chatbot() {
 
       {/* Chat window */}
       <div
-        className={`absolute right-0 bottom-[88px] h-[min(600px,75vh)] w-[min(420px,calc(100vw-30px))] origin-bottom-right overflow-hidden rounded-3xl border border-border/60 bg-card/95 backdrop-blur-xl transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`absolute right-0 bottom-[88px] flex h-[min(720px,calc(100dvh-8.5rem))] w-[min(440px,calc(100vw-30px))] origin-bottom-right flex-col overflow-hidden rounded-3xl border border-border/60 bg-card/60 backdrop-blur-2xl transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
           open
             ? "visible translate-y-0 scale-100 opacity-100 shadow-2xl shadow-black/50"
             : "invisible pointer-events-none translate-y-8 scale-95 opacity-0"
         }`}
       >
         {/* Header */}
-        <div className="flex items-center gap-3.5 border-b border-border/60 bg-muted/30 px-6 py-5">
+        <div className="flex shrink-0 items-center gap-3.5 border-b border-border/60 bg-transparent px-6 py-5">
           <div className="flex size-12 items-center justify-center rounded-2xl bg-primary">
             <Bot className="size-5 text-primary-foreground" />
           </div>
@@ -88,7 +88,7 @@ export function Chatbot() {
         </div>
 
         {/* Body */}
-        <div className="h-[calc(100%-88px)] bg-background">
+        <div className="min-h-0 flex-1 bg-transparent">
           <iframe
             src="https://vrushket-vrushket-assistant.hf.space"
             title="Chat with Vrushket's AI"
