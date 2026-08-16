@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import WebThreads from "@/components/WebThreads";
+import { WebThreadsBackground } from "@/components/WebThreadsBackground";
 import { Reveal } from "@/components/reveal";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
@@ -19,29 +19,8 @@ export function Hero() {
     >
       {/* WebThreads canvas background (React Bits) */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
-        <WebThreads
-          color1="#6366F1" // indigo-500 → var(--chart-1)
-          color2="#A78BFA" // violet-400 → var(--chart-2)
-          color3="#FFFFFF"
-          speed={0.2}
-          threadCount={6}
-          frequency={5}
-          spread={0.18}
-          taper={1.0}
-          position={0.55}
-          fanMode="center"
-          glow={0.03}
-          falloff={0.5}
-          thickness={1.2}
-          brightness={0.55}
-          opacity={0.85}
-          mirror
-          grain
-          grainIntensity={0.04}
-          mouseInteraction
-          mouseStrength={0.35}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-background to-transparent" />
+        <WebThreadsBackground />
+        <div className="absolute inset-x-0 bottom-0 h-52 bg-linear-to-t from-background to-transparent md:h-40" />
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-6 pt-32 pb-28 text-center">
