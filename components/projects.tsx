@@ -48,7 +48,7 @@ const projects: Project[] = [
       "Multi-agent healthcare analytics pipeline processing 10,000+ PubMed case reports for NSCLC clinical evidence. First author on Research Square preprint.",
     tags: ["Python", "LangChain", "NLP", "Multi-Agent"],
     icon: Activity,
-    span: "sm:col-span-2 lg:col-span-4 lg:row-span-2",
+    span: "sm:col-span-2 lg:col-span-4", // removed row-span-2
     badge: "Featured Research",
     accent: true,
     metrics: [
@@ -100,12 +100,36 @@ const projects: Project[] = [
     ],
   },
   {
+    title: "Peeker AI",
+    description:
+      "AI-powered customer analytics platform that expanded paying customer base by 50% through intelligent ETL pipelines and personalization.",
+    tags: ["Python", "ETL", "Analytics"],
+    icon: Eye,
+    span: "lg:col-span-2", // changed from 3 to 2
+    metrics: [
+      { value: "50%", label: "Growth" },
+      { value: "93%", label: "Accuracy" },
+    ],
+    links: [{ href: "https://peeker.ai", label: "Live Demo" }],
+  },
+  {
+    title: "VisionMate",
+    description:
+      "Universal scene understanding assistant fusing SAM 2, Depth Anything V2, and CLIP to answer spatial queries about images with per-object depth estimation and zero-shot classification.",
+    tags: ["PyTorch", "SAM 2", "Depth Anything V2", "CLIP", "Gradio"],
+    icon: ScanEye,
+    span: "lg:col-span-2", // changed from 3 to 2
+    links: [
+      { href: "https://github.com/vmore2/VisionMate", label: "View Code" },
+    ],
+  },
+  {
     title: "AgentRank + CogniHive",
     description:
       "A temporal memory stack: one model that knows when memories happened, one multi-agent system that routes queries to the right expert.",
     tags: ["Embeddings", "Multi-Agent", "PyPI", "HuggingFace"],
     icon: BrainCircuit,
-    span: "sm:col-span-2 lg:col-span-3",
+    span: "sm:col-span-2 lg:col-span-6", // changed from 3 to 6
     subItems: [
       {
         title: "AgentRank",
@@ -138,36 +162,12 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Peeker AI",
-    description:
-      "AI-powered customer analytics platform that expanded paying customer base by 50% through intelligent ETL pipelines and personalization.",
-    tags: ["Python", "ETL", "Analytics"],
-    icon: Eye,
-    span: "lg:col-span-3",
-    metrics: [
-      { value: "50%", label: "Growth" },
-      { value: "93%", label: "Accuracy" },
-    ],
-    links: [{ href: "https://peeker.ai", label: "Live Demo" }],
-  },
-  {
-    title: "VisionMate",
-    description:
-      "Universal scene understanding assistant fusing SAM 2, Depth Anything V2, and CLIP to answer spatial queries about images with per-object depth estimation and zero-shot classification.",
-    tags: ["PyTorch", "SAM 2", "Depth Anything V2", "CLIP", "Gradio"],
-    icon: ScanEye,
-    span: "lg:col-span-3",
-    links: [
-      { href: "https://github.com/vmore2/VisionMate", label: "View Code" },
-    ],
-  },
-  {
     title: "QSVAPS",
     description:
       "Quantum Superposition Verification for Agent Plan Safety. Uses Grover's quantum search algorithm to verify AI agent plans, finding constraint violations with O(√N) speedup.",
     tags: ["Qiskit", "Quantum Computing", "Python", "OpenAI"],
     icon: Atom,
-    span: "lg:col-span-3",
+    span: "lg:col-span-2", // changed from 3 to 2
     metrics: [
       { value: "O(√N)", label: "Speedup" },
       { value: "52", label: "Tests" },
@@ -273,7 +273,7 @@ const projects: Project[] = [
       "Interactive business intelligence dashboards: survey analytics on 630+ data professionals, salary insights, and programming preferences.",
     tags: ["Power BI", "Data Viz", "Analytics"],
     icon: ChartPie,
-    span: "sm:col-span-2 lg:col-span-4",
+    span: "sm:col-span-2 lg:col-span-2", // changed from 4 to 2
     drawer: true,
   },
 ];
@@ -317,20 +317,18 @@ export function Projects() {
                   />
                   {project.title}
                 </h3>
-                <p className="mt-2 flex-1 text-base leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">
+                  {/* removed flex-1 to prevent absorbing extra space */}
                   {project.description}
                 </p>
 
                 {project.subItems ? (
-                  <div className="mt-5">
-                    {project.subItems.map((item, itemIndex) => (
+                  <div className="mt-5 grid gap-6 lg:grid-cols-2">
+                    {/* two-column layout for sub-items on large screens */}
+                    {project.subItems.map((item) => (
                       <div
                         key={item.title}
-                        className={
-                          itemIndex > 0
-                            ? "border-t border-border/60 py-4"
-                            : "border-t border-border/60 pt-4 pb-1"
-                        }
+                        className="border-t border-border/60 pt-4 lg:border-t-0 lg:pt-0"
                       >
                         <h4 className="font-heading text-base font-semibold text-foreground">
                           {item.title}
@@ -389,7 +387,8 @@ export function Projects() {
                 </div>
 
                 {project.links || project.drawer ? (
-                  <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                  <div className="mt-auto pt-5 flex flex-wrap gap-x-6 gap-y-2">
+                    {/* mt-auto pushes links to bottom of stretched cards */}
                     {project.drawer ? <PowerBIDrawer /> : null}
                     {project.links?.map((link) => (
                       <a
