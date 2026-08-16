@@ -92,7 +92,8 @@ export function Hero() {
               href="#projects"
               className={buttonVariants({
                 size: "lg",
-                className: "h-13 gap-2 rounded-full px-8 text-lg font-semibold",
+                className:
+                  "h-13 gap-2 rounded-full bg-primary/80 px-8 text-lg font-semibold backdrop-blur-md hover:bg-primary/90",
               })}
             >
               View My Work

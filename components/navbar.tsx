@@ -56,7 +56,8 @@ export function Navbar() {
           <a
             href="#contact"
             className={buttonVariants({
-              className: "rounded-full px-5 text-base",
+              className:
+                "rounded-full bg-primary/80 px-5 text-base backdrop-blur-md hover:bg-primary/90",
             })}
           >
             Let’s Talk
@@ -108,7 +109,8 @@ export function Navbar() {
             href="#contact"
             onClick={() => setOpen(false)}
             className={buttonVariants({
-              className: "mt-2 rounded-full text-base",
+              className:
+                "mt-2 rounded-full bg-primary/80 text-base backdrop-blur-md hover:bg-primary/90",
             })}
           >
             Let’s Talk
