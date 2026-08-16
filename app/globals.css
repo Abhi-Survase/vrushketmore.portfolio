@@ -52,11 +52,22 @@
 
 @theme {
   --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 48s linear infinite;
+  --animate-marquee-slow: marquee 64s linear infinite;
   --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
 
   @keyframes marquee {
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
     }
   }
 
