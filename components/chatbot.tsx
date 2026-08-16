@@ -9,7 +9,9 @@ import { Bot, X } from "lucide-react";
  */
 export function Chatbot() {
   const [open, setOpen] = useState(false);
-
+  console.log(
+    "╔══════════════════════════════════════════╗\n║                                          ║\n║      👋 Hey there, curious one!         ║\n║                                          ║\n║   Looking for the code behind this?      ║\n║   I love developers who explore!         ║\n║                                          ║\n║   Let's connect:                         ║\n║   📧 vmore2@binghamton.edu              ║\n║   💼 linkedin.com/in/vrushketmore       ║\n║                                          ║\n╚══════════════════════════════════════════╝",
+  );
   return (
     <div className="fixed right-5 bottom-5 z-[9999] sm:right-8 sm:bottom-8">
       {/* Floating button */}
