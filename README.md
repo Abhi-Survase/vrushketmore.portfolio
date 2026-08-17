@@ -1,36 +1,200 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+
+# Vrushket More — Portfolio
+
+### AI/ML Engineer | Data Scientist | Full-Stack Developer
+
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-vmore2.github.io-00d4ff?style=for-the-badge)](https://vmore2.github.io)
+[![AI Chatbot](https://img.shields.io/badge/🤖_AI_Assistant-Chat_Now-7c3aed?style=for-the-badge)](https://vrushket-vrushket-assistant.hf.space)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/vrushketmore)
+
+<br/>
+
+Personal website built with **Next.js**, **Tailwind CSS**, and **shadcn/ui**.  
+Features a WebGL hero background, project showcase, skills, experience timeline, and contact section.
+
+[Features](#-features) • [Tech Stack](#-tech-stack) • [AI Chatbot](#-ai-chatbot) • [Local Setup](#-local-setup) • [Architecture](#-architecture)
+
+**Live:** [vrushketmore.github.io](https://vmore2.github.io/vrushketmore.github.io/)
+
+## </div>
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (React 19)
+- **Styling:** Tailwind CSS 4, shadcn/ui, CSS variables with OKLCH
+- **Animations:** Motion (Framer Motion), tw-animate-css
+- **Icons:** Lucide React, Simple Icons
+- **Background:** WebGL via `ogl` (reactbits `WebThreadsBackground`)
+- **Fonts:** Geist Sans, Geist Mono, custom heading font
+- **Deployment:** GitHub Pages (static export to `docs/`)
+
+---
+
+## Features
+
+- Responsive dark theme with light/dark toggle
+- Hero section with animated WebGL background and stats
+- Project cards with filtering and modal details
+- Skills section with animated progress bars
+- Interactive experience timeline
+- Publications and contact sections
+- Smooth scroll and intersection‑observer animations
+- Accessible components via shadcn/ui primitives
+
+---
+
+### AI Chatbot
+
+| Technology            | Purpose                       |
+| --------------------- | ----------------------------- |
+| Python                | Backend logic                 |
+| Gradio                | Chat interface & hosting      |
+| Groq API              | LLM inference (Llama 3.3 70B) |
+| ChromaDB              | Vector database               |
+| sentence-transformers | Text embeddings               |
+
+### Deployment
+
+| Service            | Purpose           |
+| ------------------ | ----------------- |
+| GitHub Pages       | Portfolio hosting |
+| HuggingFace Spaces | Chatbot hosting   |
+
+---
+
+## AI Chatbot
+
+### How It Works
+
+The chatbot uses **Retrieval-Augmented Generation (RAG)** to answer questions about my experience:
+
+```
+User Question
+     │
+     ▼
+┌─────────────────────────┐
+│  Embed Question         │  ← sentence-transformers
+│  (384-dim vector)       │
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│  Vector Search          │  ← ChromaDB
+│  (Find relevant docs)   │
+└───────────┬─────────────┘
+            │
+            ▼
+┌─────────────────────────┐
+│  LLM Generation         │  ← Groq (Llama 3.3)
+│  (Context + Question)   │
+└───────────┬─────────────┘
+            │
+            ▼
+      AI Response
+```
+
+### Knowledge Base
+
+The chatbot is trained on:
+
+- `resume.md` — Full resume content
+- `projects.md` — Detailed project descriptions
+- `skills.md` — Technical capabilities
+- `personality.md` — Response style guide
+- `faq.md` — Common questions
+
+### Try It
+
+```
+"What projects has Vrushket worked on?"
+"Tell me about his ML experience"
+"What tech stack does he use?"
+"Is he available for opportunities?"
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- pnpm (or npm/yarn)
+
+### Install & Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/vmore2/vmore2.github.io.git
+cd vmore2.github.io
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Chatbot (Local Development)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Navigate to chatbot directory
+cd chatbot
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 
-## Learn More
+# Install dependencies
+pip install -r requirements.txt
 
-To learn more about Next.js, take a look at the following resources:
+# Set API key
+export GROQ_API_KEY="your-groq-api-key"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run
+python app.py
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### RAG Pipeline
 
-## Deploy on Vercel
+```python
+# Embed user question
+embedding = model.encode(question)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Search knowledge base
+results = collection.query(query_texts=[question], n_results=5)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Generate response with context
+response = groq.chat.completions.create(
+    model="llama-3.3-70b-versatile",
+    messages=[
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": f"Context: {results}"},
+        {"role": "user", "content": question}
+    ]
+)
+```
+
+---
+
+## Performance
+
+| Metric                 | Value  |
+| ---------------------- | ------ |
+| Lighthouse Performance | 95+    |
+| First Contentful Paint | < 1.5s |
+| Chatbot Response Time  | < 2s   |
+| Mobile Responsive      | ✅     |
+
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+**Vrushket More**
+
+- Email: [vmore2@binghamton.edu](mailto:vmore2@binghamton.edu)
+- LinkedIn: [linkedin.com/in/vrushketmore](https://linkedin.com/in/vrushketmore)
+- GitHub: [github.com/vmore2](https://github.com/vmore2)
+- Portfolio: [vmore2.github.io](https://vmore2.github.io)
+
+---
