@@ -34,7 +34,7 @@ export function PowerBIDrawer() {
         </DrawerHeader>
         <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden px-4 pb-4">
           <img
-            src="/powerbi-survey-dashboard.png"
+            src="powerbi-survey-dashboard.png"
             alt="Power BI dashboard visualizing the Data Professional Survey Breakdown"
             className="max-h-[55dvh] w-auto max-w-full rounded-xl border border-border/60 object-contain"
           />
